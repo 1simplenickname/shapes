@@ -3,31 +3,58 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
-#triangle {
-    visibility: visible;
+.shapes {
     width: 400px;
     height: 400px;
     background-color: #EF2E2E;
     -webkit-clip-path: polygon(0 100%, 0 100%, 50% 0, 50% 0, 50% 0, 50% 0, 100% 100%, 100% 100%);
     clip-path: polygon(0 100%, 0 100%, 50% 0, 50% 0, 50% 0, 50% 0, 100% 100%, 100% 100%);
-    animation: morph 4s ease infinite;
+    animation: appear 0.33s ease-in-out forwards, triangle-square-hexagon 1.33s ease-in-out 0.33s forwards, circle 1s ease-in-out 1.66s forwards, disappear 0.33s ease-in-out 2.66s forwards;
 }
 
-@keyframes morph {
-    25% {
+@keyframes appear {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
         background-color: #EF2E2E;
         -webkit-clip-path: polygon(0 100%, 0 100%, 50% 0, 50% 0, 50% 0, 50% 0, 100% 100%, 100% 100%);
         clip-path: polygon(0 100%, 0 100%, 50% 0, 50% 0, 50% 0, 50% 0, 100% 100%, 100% 100%);
     }
+}
+
+@keyframes triangle-square-hexagon {
+    0% {
+        background-color: #EF2E2E;
+    }
     50% {
-        background-color: #DFAF2B;
+        background-color: #EF7E2E;
         -webkit-clip-path: polygon(0 100%, 0 100%, 0 0, 0 0, 100% 0, 100% 0, 100% 100%, 100% 100%);
         clip-path: polygon(0 100%, 0 100%, 0 0, 0 0, 100% 0, 100% 0, 100% 100%, 100% 100%);
     }
-    75% {
-        background-color: #24B936;
+    100% {
+        background-color: #DFAF2B;
         -webkit-clip-path: polygon(25% 100%, 0 75%, 0 25%, 25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%);
         clip-path: polygon(25% 100%, 0 75%, 0 25%, 25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%);
+    }
+}
+
+@keyframes circle {
+    0% {
+        background-color: #DFAF2B;
+        border-radius: 0;
+    }
+    100% {
+        background-color: #24B936;
+        border-radius: 50%;
+    }
+}
+
+@keyframes disappear {
+    100% {
+        transform: scale(0);
     }
 }
