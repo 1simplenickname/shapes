@@ -6,8 +6,8 @@ body {
 }
 #triangle {
     visibility: visible;
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     background-color: #EF2E2E;
     -webkit-clip-path: polygon(0 100%, 0 100%, 50% 0, 50% 0, 50% 0, 50% 0, 100% 100%, 100% 100%);
     clip-path: polygon(0 100%, 0 100%, 50% 0, 50% 0, 50% 0, 50% 0, 100% 100%, 100% 100%);
